@@ -1,15 +1,15 @@
 {
-  "name": "first",
+  "name": "shell",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "app",
-  "sourceRoot": "apps/first/src",
+  "sourceRoot": "apps/shell/src",
   "tags": [],
   "targets": {
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "buildTarget": "first:build"
+        "buildTarget": "shell:build"
       }
     },
     "lint": {
@@ -19,9 +19,14 @@
       "continuous": true,
       "executor": "@nx/web:file-server",
       "options": {
-        "buildTarget": "first:build",
+        "buildTarget": "shell:build",
         "port": 4200,
         "spa": true
+      }
+    },
+    "serve": {
+      "options": {
+        "port": 4200
       }
     }
   }
