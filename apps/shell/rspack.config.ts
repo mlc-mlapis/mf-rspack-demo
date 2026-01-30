@@ -27,6 +27,20 @@ export default async () => {
           publicHost: 'http://localhost:4200',
         },
       },
+      rspackConfigOverrides: {
+        output: {
+            // Required for Module Federation remoteEntry.js to be exposed correctly
+            // Without this, dev server mode produces an IIFE which can't be loaded
+            library: { type: 'module' },
+            scriptType: 'module',
+            module: true,
+            chunkFormat: 'module',
+            chunkLoading: 'import',
+          },
+          experiments: {
+            outputModule: true,
+          }
+      }
     },
     {
       production: {
